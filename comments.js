@@ -3,13 +3,13 @@ var http = require('http');
 var fs = require('fs');
 var url = require('url');
 var qs = require('querystring');
- 
+
 //create server
 http.createServer(function (request, response) {
     var _url = request.url;
     var queryData = url.parse(_url, true).query;
     var pathname = url.parse(_url, true).pathname;
- 
+
     if (pathname === '/') {
         if (queryData.id === undefined) {
             fs.readdir('./data', function (error, filelist) {
@@ -62,9 +62,4 @@ http.createServer(function (request, response) {
                     <h1><a href="/">WEB</a></h1>
                     ${list}
                     <h2>${title}</h2>
-                    <p>${description}</p>
-                    </body
-
-
-
-
+                    <p>${description}</
