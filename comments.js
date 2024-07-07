@@ -1,18 +1,13 @@
-//Create a Web Server
-const express = require('express');
-const app = express();
-const port = 3000;
+const http = require('http');
 
-//Create a route
-app.get('/', (req, res) => {
-  res.send('Welcome to the Jungle!');
+// Create web server    
+const server = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Hello, World!');
 });
 
-app.get('/comments', (req, res) => {
-  res.send('Comments will be here!');
+server.listen(3000, 'localhost', () => {
+    console.log('Server running at http://localhost:3000/');
 });
 
-//Start the server
-app.listen(port, () => {
-  console.log(`Server started at http://localhost:${port}`);
-});
